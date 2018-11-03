@@ -1,0 +1,113 @@
+<html lang="de">
+	
+	<head>
+		<link href="Style.css" type="text/css" rel="stylesheet">
+		<title>Studium Webseite</title>
+		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	
+	<body>
+	<!-- 
+	To Do:
+		-Navleiste die Schrift nach unten verschieben	
+		-Tabelle ohne Abstand zwischen den Spalten
+	-->	
+	
+		<!-- Hier befindet sich die Navigationsleiste
+			Das Display ist auf flex gestellt
+		  -->
+		<div class="navigation">
+			<div id="nav1" class="navDiv"> <a href="StudiumWebseite.html" class="navA"> Lel </a> </div>
+			<div id="nav2" class="navDiv"> <a href="StudiumWebseite.html" class="navA"> Boo </a> </div>
+			<div id="nav3" class="navDiv"> <a href="StudiumWebseite.html" class="navA"> Juhu </a> </div>
+			<div id="nav4" class="navDiv"> <a href="StudiumWebseite.html" class="navA"> ROFL </a> </div>
+		</div>
+		
+		<h1>Studium Webseite</h1>
+		
+		
+		<!-- Hier befindet sich ein Do To- und Wichtige-Termine-Bereich -->
+		<div class="wichtigBereich">
+			<div class="wB_Divs" id="doTo">
+				<h3>To Do-Liste:</h3>
+				<p>-Hodf</p>
+				<p>-Hodf</p>
+				<p>-Hodf</p>
+				<p>-Hodf</p>
+				<form>
+					<input type="text" name="newDoTO" />
+					<input type="submit"  />
+				</form>
+			</div>
+			<div class="wB_Divs" id="termine">
+				<h3>Wichtige Thermine:</h3>
+				<p>32.13.2017: dafahfd</p>
+				<p>32.13.2017: dafahfd</p>
+				<p>32.13.2017: dafahfd</p>
+				<p>32.13.2017: dafahfd</p>
+				<form>
+					<input type="date" name="newDate" />
+					<input type="text" name="newEvent" />
+					<input type="submit"  />
+				</form>
+			</div>
+		</div>
+		
+		<!-- Hier steht der Kalender-->		
+		<table class="kalender">
+			<tr class="kalZeile"> 
+				<td class="kalSpalte zeile1">Uhrzeit</td>
+				<td class="kalSpalte zeile1">Montag</td>
+				<td class="kalSpalte zeile1">Dienstag</td>
+				<td class="kalSpalte zeile1">Mittwoch</td>
+				<td class="kalSpalte zeile1">Donnerstag</td>
+				<td class="kalSpalte zeile1">Freitag</td>
+				<td class="kalSpalte zeile1">Samstag</td>
+				<td class="kalSpalte zeile1">Sonntag</td>
+			</tr>
+			<tr class="kalZeile"> 
+				<td class="kalSpalte">da</td>
+				<td class="kalSpalte">da</td>
+				<td class="kalSpalte">adf</td>
+				<td class="kalSpalte">dad</td>
+				<td class="kalSpalte">fa</td>
+				<td class="kalSpalte">adf</td>
+				<td class="kalSpalte">dad</td>
+				<td class="kalSpalte">fa</td>
+			</tr>
+			<tr class="kalZeile"> 
+				<td class="kalSpalte">da</td>
+				<td class="kalSpalte">da</td>
+				<td class="kalSpalte">adf</td>
+				<td class="kalSpalte">dad</td>
+				<td class="kalSpalte">fa</td>
+				<td class="kalSpalte">adf</td>
+				<td class="kalSpalte">dad</td>
+				<td class="kalSpalte">fa</td>
+			</tr>
+			<tr class="kalZeile"> 
+				<td class="kalSpalte">da</td>
+				<td class="kalSpalte">da</td>
+				<td class="kalSpalte">adf</td>
+				<td class="kalSpalte">dad</td>
+				<td class="kalSpalte">fa</td>
+				<td class="kalSpalte">adf</td>
+				<td class="kalSpalte">dad</td>
+				<td class="kalSpalte">fa</td>
+			</tr>
+			<tr class="kalZeile"> 
+				<td class="kalSpalte">da</td>
+				<td class="kalSpalte">da</td>
+				<td class="kalSpalte">adf</td>
+				<td class="kalSpalte">dad</td>
+				<td class="kalSpalte">fa</td>
+				<td class="kalSpalte">adf</td>
+				<td class="kalSpalte">dad</td>
+				<td class="kalSpalte">fa</td>
+			</tr>
+		</table>		
+		
+	</body>	
+	
+</html>
