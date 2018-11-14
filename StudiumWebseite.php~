@@ -21,6 +21,9 @@
 		  -->
 		  
 		<?php
+			//Hier wird die PHP-Datei mit den Funktionen hinzugefügt
+			include "PHPFunktionen.php";
+			//Hier wird die Verbindung zur Datenbank hergestellt
 			//Hier steht das wichtigste fuer die Datenbank
 			$servername = "localhost";
 			$benutzer = "root";
@@ -30,8 +33,8 @@
 			$connection = new mysqli($servername, $benutzer, $password, $datenbank);
 			
 			if($connection->connect_error){
-			die("Es konnte nicht mit der Datenbank verbunden werden!");
-		}
+				die("Es konnte nicht mit der Datenbank verbunden werden!");
+			}			
 		?>		  
 		  
 		<div class="navigation">
@@ -50,24 +53,8 @@
 				<h3>To Do-Liste:</h3>
 				
 				<?php
-					$eintrage = "SELECT * FROM eintraege";
-					$result = $connection->query($eintrage);
-					
-					if(!$result) {
-						echo	"Es konnte keine Verbindung hergestellt werden";	
-					}
-					
-					//Hier wird überprüft ob die Anzahl der Reihen größer als 1 ist
-					if ($result->num_rows > 0) {
-					    // output data of each row
-					    while($row = $result->fetch_assoc()) {
-					    		//Hier wird der nächste Eintrag genommen
-								// _assoc um ein assoziatives Array zurückzubekommen
-					        echo "<br><p>Datum : " . date('d.m.Y', $row['Datum']) . " ToDo: " . $row['ToDo'] . "<p>";
-					    }
-					} else {
-					    echo "Noch keine Einträge";
-					}
+					//Hier werden die Einträge der ToDo-Liste ausgegeben
+					eintaegeAusgeben($connection);
 				?>
 				
 				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
@@ -77,21 +64,7 @@
 				
 				<?php	
 					//Hier wird der Eintrag aus Submit-Button 1 genommen
-					if($_SERVER["REQUEST_METHOD"] == "POST") {	
-						if(!empty($_POST["newToDo"])){
-							$ToDo = $_POST["newToDo"];
-							$datum = time();
-							$neuerToDoEintrag = "INSERT INTO eintraege (ToDo, datum) VALUES ( '$ToDo', '$datum')";
-							
-							if($connection->query($neuerToDoEintrag) === true){
-								echo "Du wurdest erfolgreich registriert!";
-							}
-							else {
-								//Falls es nicht erfolgreich war, gibt es den Fehler aus
-								echo "Du bist ein Lappen" . $connection->error;
-							}
-						}
-					}
+					neuerToDoEintrag($connection);
 				?>
 				
 
@@ -103,19 +76,15 @@
 				<p>32.13.2017: dafahfd</p>
 				<p>32.13.2017: dafahfd</p>
 				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
-					<input type="text" name="newEvent" />
+					Neuer Eintrag: <input type="text" name="newEvent" />
+					am: <input type="date" name="datum" />
 					<input type="submit" name="submit2" />
 				</form>
 				
 				
 				<?php	
 				//Hier wird der Eintrag aus Submit-Button 2 genommen
-					if($_SERVER["REQUEST_METHOD"]) {	
-						if(!empty($_POST["newEvent"])){
-							$newEvent = $_POST["newEvent"];
-							echo "Gesetzt "  . $newEvent;
-						}
-					}		
+				neuerKalenderEintrag($connection);	
 				?>
 				
 			</div>
