@@ -25,6 +25,7 @@
 			include "PHPFunktionen.php";
 			//Hier wird die Verbindung zur Datenbank hergestellt
 			//Hier steht das wichtigste fuer die Datenbank
+			//connectDB();
 			$servername = "localhost";
 			$benutzer = "root";
 			$password = "";
@@ -34,7 +35,7 @@
 			
 			if($connection->connect_error){
 				die("Es konnte nicht mit der Datenbank verbunden werden!");
-			}			
+			}		
 		?>		  
 		  
 		<div class="navigation">
@@ -70,12 +71,12 @@
 
 			</div>
 			<div class="wB_Divs" id="termine">
-				<h3>Wichtige Thermine:</h3>
-				<p>32.13.2017: dafahfd</p>
-				<p>32.13.2017: dafahfd</p>
-				<p>32.13.2017: dafahfd</p>
-				<p>32.13.2017: dafahfd</p>
-				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="get">
+				<h3>Wichtige Termine:</h3>
+				<?php
+					//Hier werden die Einträge der ToDo-Liste ausgegeben
+					termineAusgeben($connection);
+				?>
+				<form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post">
 					Neuer Eintrag: <input type="text" name="newEvent" />
 					am: <input type="date" name="datum" />
 					<input type="submit" name="submit2" />
@@ -84,7 +85,7 @@
 				
 				<?php	
 				//Hier wird der Eintrag aus Submit-Button 2 genommen
-				neuerKalenderEintrag($connection);	
+				neuerTerminEintrag($connection);	
 				?>
 				
 			</div>
